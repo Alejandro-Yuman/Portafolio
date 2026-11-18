@@ -1,1 +1,55 @@
-/* You can add global styles to this file, and also import other style files */
+
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+
+
+
+.titulo {
+  font-family: "Grenze", serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+
+
+:root {
+    --bg-primary: #080808;      /* Negro casi absoluto */
+  --bg-secondary: #121212;    /* Gris muy oscuro para tarjetas */
+  --text-main: #e0e0e0;       /* Gris claro para lectura cómoda */
+  --accent-color: #ff2a2a;    /* Rojo sangre para acentos y botones */
+  --accent-glow: rgba(255, 42, 42, 0.3); /* Brillo difuminado */
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.blackCont {
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card {
+  background-color: var(--bg-secondary);
+  border: 1px solid #222;
+  color: var(--text-main);
+  transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 15px var(--accent-glow);
+  transform: translateY(-3px);
+}
+
+
+
+
+.todo {
+    height: 100vh;
+}
+
+
