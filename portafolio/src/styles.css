@@ -13,7 +13,7 @@
 
 
 :root {
-    --bg-primary: #080808;      /* Negro casi absoluto */
+    --bg-primary: #0B0B0C;      /* Negro casi absoluto */
   --bg-secondary: #121212;    /* Gris muy oscuro para tarjetas */
   --text-main: #e0e0e0;       /* Gris claro para lectura cómoda */
   --accent-color: #ff2a2a;    /* Rojo sangre para acentos y botones */
@@ -49,7 +49,23 @@ body {
 
 
 .todo {
-    height: 100vh;
+    height: 85vh;
 }
 
+.separador {
+    width: 75vh;
+}
+
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, visibility, transform;
+}
+
+/* Estado final cuando aparece en pantalla */
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
