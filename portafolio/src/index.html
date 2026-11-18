@@ -20,28 +20,31 @@
 <body>
   <app-root></app-root>
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0 // Se activa cuando al menos el 10% del elemento es visible
-      };
+  document.addEventListener("DOMContentLoaded", function () {
+    const elementos = document.querySelectorAll(".fade-in-section");
 
-      const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            // Opcional: deja de observar el elemento una vez que ya apareció
-            observer.unobserve(entry.target);
-          }
-        });
-      }, observerOptions);
+    function mostrarElementosVisibles() {
+      const altoPantalla = window.innerHeight || document.documentElement.clientHeight;
 
-      document.querySelectorAll('.fade-in-section').forEach(section => {
-        observer.observe(section);
+      elementos.forEach((el) => {
+        if (el.classList.contains("is-visible")) return;
+
+        const rect = el.getBoundingClientRect();
+        // Si la parte superior del elemento ya entró o ya quedó arriba de la pantalla
+        if (rect.top <= altoPantalla * 0.95) {
+          el.classList.add("is-visible");
+        }
       });
-    });
-  </script>
+    }
+
+    // Revisar apenas cargue la página (útil si ya hay elementos en pantalla)
+    mostrarElementosVisibles();
+
+    // Revisar cada vez que el usuario haga scroll o rote/cambie el tamaño de pantalla
+    window.addEventListener("scroll", mostrarElementosVisibles, { passive: true });
+    window.addEventListener("resize", mostrarElementosVisibles, { passive: true });
+  });
+</script>
 </body>
 
 </html>
