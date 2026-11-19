@@ -19,9 +19,14 @@
 
 <body>
   <app-root></app-root>
-  <script>
-  document.addEventListener("DOMContentLoaded", function () {
+<script>
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
+
+  (function () {
     const elementos = document.querySelectorAll(".fade-in-section");
+    document.documentElement.classList.add("anim-ready");
 
     function mostrarElementosVisibles() {
       const altoPantalla = window.innerHeight || document.documentElement.clientHeight;
@@ -30,20 +35,17 @@
         if (el.classList.contains("is-visible")) return;
 
         const rect = el.getBoundingClientRect();
-        // Si la parte superior del elemento ya entró o ya quedó arriba de la pantalla
         if (rect.top <= altoPantalla * 0.95) {
           el.classList.add("is-visible");
         }
       });
     }
 
-    // Revisar apenas cargue la página (útil si ya hay elementos en pantalla)
-    mostrarElementosVisibles();
-
-    // Revisar cada vez que el usuario haga scroll o rote/cambie el tamaño de pantalla
+    document.addEventListener("DOMContentLoaded", mostrarElementosVisibles);
+    window.addEventListener("load", mostrarElementosVisibles);
     window.addEventListener("scroll", mostrarElementosVisibles, { passive: true });
     window.addEventListener("resize", mostrarElementosVisibles, { passive: true });
-  });
+  })();
 </script>
 </body>
 
