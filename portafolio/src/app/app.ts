@@ -6,6 +6,7 @@ import { About } from './components/about/about';
 import { Skills } from './components/skills/skills';
 import { Contact } from './components/contact/contact';
 import { Separator } from './components/separator/separator';
+import { Home } from './components/home/home';
 
 
 @Component({
@@ -14,7 +15,8 @@ import { Separator } from './components/separator/separator';
             About,
             Skills,
             Contact,
-            Separator
+            Separator,
+            Home
 
   ],
   selector: 'app-root',

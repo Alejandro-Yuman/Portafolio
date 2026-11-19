@@ -1,0 +1,50 @@
+.carousel {
+
+    margin: 100px auto;
+    width: 90%;
+
+    display: flex;
+
+    overflow-x: auto;
+    
+
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.cardItem {
+    flex: 0 0 5em;
+    height: 11em;
+    padding: 2em;
+
+    border-radius: .2em;
+    color: var(--text-main);
+    transition: all 0.3s ease-in-out;
+}
+
+.cardItem:hover {
+
+    transform: translateY(-3px);
+}
+
+
+.group{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    animation: spin 10s  infinite linear;
+    padding-right: 1em;
+}
+
+.itemImg {
+    width: 15vh;
+}
+
+@keyframes spin {
+    from {translate: 0;}
+    to { translate: -100%;}
+    
+}

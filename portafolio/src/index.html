@@ -19,34 +19,7 @@
 
 <body>
   <app-root></app-root>
-<script>
-  if ("scrollRestoration" in history) {
-    history.scrollRestoration = "manual";
-  }
 
-  (function () {
-    const elementos = document.querySelectorAll(".fade-in-section");
-    document.documentElement.classList.add("anim-ready");
-
-    function mostrarElementosVisibles() {
-      const altoPantalla = window.innerHeight || document.documentElement.clientHeight;
-
-      elementos.forEach((el) => {
-        if (el.classList.contains("is-visible")) return;
-
-        const rect = el.getBoundingClientRect();
-        if (rect.top <= altoPantalla * 0.95) {
-          el.classList.add("is-visible");
-        }
-      });
-    }
-
-    document.addEventListener("DOMContentLoaded", mostrarElementosVisibles);
-    window.addEventListener("load", mostrarElementosVisibles);
-    window.addEventListener("scroll", mostrarElementosVisibles, { passive: true });
-    window.addEventListener("resize", mostrarElementosVisibles, { passive: true });
-  })();
-</script>
 </body>
 
 </html>
